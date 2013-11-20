@@ -1,0 +1,196 @@
+rank,movie_title,imdbid,rtid
+1,Shrek 2,,
+2,Spider-Man 2,,
+3,The Passion of the Christ,,
+4,Meet the Fockers,0290002,10041
+5,The Incredibles,,10011
+6,Harry Potter and the Prisoner of Azkaban,0304141,10014
+7,The Day After Tomorrow,0319262,10154
+8,The Bourne Supremacy,0372183,10084
+9,National Treasure,0368891,10016
+10,The Polar Express,,
+11,Shark Tale,0307453,10079
+12,"I, Robot",,
+13,Troy,,
+14,Ocean's Twelve,0349903,10049
+15,50 First Dates,0343660,10192
+16,Van Helsing,,
+17,Fahrenheit 9/11,0361596,12893
+18,Lemony Snicket's A Series of Unfortunate Events,0339291,10045
+19,DodgeBall: A True Underdog Story,0364725,16981
+20,The Village,0368447,10191
+21,The Grudge,0391198,17083
+22,The Aviator,,
+23,Collateral,,
+24,Million Dollar Baby,0405159,10026
+25,The Princess Diaries 2: Royal Engagement,0368933,9454
+26,Starsky and Hutch,,
+27,Along Came Polly,0343135,10982
+28,Mean Girls,,
+29,The SpongeBob SquarePants Movie,0345950,10467
+30,Anchorman: The Legend of Ron Burgundy,0357413,16978
+31,Scooby-Doo 2: Monsters Unleashed,0331632,10865
+32,The Notebook,,10015
+33,Alien Vs. Predator,0370263,10111
+34,Man on Fire,0328107,12876
+35,The Terminal,0362227,11664
+36,Garfield: The Movie,0356634,10175
+37,Ray,0350258,12784
+38,Ladder 49,,10374
+39,Christmas with the Kranks,0388419,10018
+40,Sideways,0375063,12851
+41,White Chicks,0381707,17071
+42,Hidalgo,,
+43,The Forgotten,,
+44,Kill Bill Vol. 2,0378194,12862
+45,The Manchurian Candidate,0368008,14500
+46,Barbershop 2: Back in Business,0337579,10839
+47,Miracle,0419967,519435803
+48,Friday Night Lights,0390022,10213
+49,Hellboy,0167190,10494
+50,The Stepford Wives,0327162,10977
+51,Dawn of the Dead,,
+52,Without a Paddle,0364751,10946
+53,The Butterfly Effect,0289879,12979
+54,Shall We Dance,0358135,10228
+55,The Chronicles of Riddick,,
+56,13 Going on 30,0337563,12112
+57,Saw,0387564,16980
+58,Hero,,
+59,Blade: Trinity,0359013,17000
+60,King Arthur,,
+61,Finding Neverland,0308644,10033
+62,A Cinderella Story,0356470,10321
+63,The Phantom of the Opera,,
+64,Resident Evil: Apocalypse,0318627,13013
+65,Home on the Range,0299172,10744
+66,Fat Albert,,
+67,Secret Window,0363988,10587
+68,Walking Tall,0351977,10644
+69,In Good Company,0385267,10562
+70,Napoleon Dynamite,0374900,10007
+71,Spanglish,0371246,10163
+72,Exorcist: The Beginning,0204313,13326
+73,You Got Served,,
+74,Bridget Jones: The Edge of Reason,0317198,12941
+75,Catwoman,0327554,10994
+76,The Ladykillers,0335245,14905
+77,Sky Captain and the World of Tomorrow,0346156,10053
+78,Raising Helen,0350028,10901
+79,Taxi,0316732,104878212
+80,Eternal Sunshine of the Spotless Mind,0338013,12860
+81,Alexander,,
+82,Closer,,
+83,The Punisher,0330793,13155
+84,Team America: World Police,0372588,16974
+85,Taking Lives,0364045,17141
+86,Anacondas: The Hunt for the Blood Orchid,0366174,11072
+87,Cellular,0337921,12750
+88,Johnson Family Vacation,0359517,11453
+89,Open Water,,
+90,Confessions of a Teenage Drama Queen,0361467,10634
+91,After the Sunset,0367479,12597
+92,The Prince and Me,0337697,10651
+93,Garden State,,
+94,Jersey Girl,0300051,10653
+95,Twisted,0315297,14784
+96,The Life Aquatic with Steve Zissou,,12895
+97,Around the World in 80 Days,0327437,11425
+98,Agent Cody Banks 2: Destination London,0358349,11224
+99,Hotel Rwanda,0395169,12856
+100,Ella Enchanted,0327679,10457
+101,The Alamo (2004),,10956
+102,Darkness,0273517,17278
+103,Mr. 3000,,
+104,NASCAR 3D: The IMAX Experience (IMAX),0353774,653489961
+105,Torque,0329691,20512
+106,Flight of the Phoenix,0377062,10403
+107,Little Black Book,0361841,11157
+108,Yu-Gi-Oh! The Movie,0403703,10953
+109,Two Brothers,0338512,11148
+110,Harold and Kumar Go to White Castle,,
+111,Laws of Attraction,0323033,11217
+112,Eurotrip,,17316
+113,My Baby's Daddy,,
+114,Seed of Chucky,0387575,13571
+115,Win a Date with Tad Hamilton!,0335559,11098
+116,Wimbledon,,
+117,The Motorcycle Diaries,,
+118,Catch That Kid,0337917,11722
+119,The Whole Ten Yards,0327247,11427
+120,Vanity Fair,0241025,10793
+121,Paparazzi,0338325,11248
+122,The Girl Next Door,0265208,14679
+123,Welcome to Mooseport,0361925,11794
+124,Godsend,0335121,11731
+125,Soul Plane,0367085,17180
+126,Dirty Dancing: Havana Nights,0338096,10470
+127,New York Minute,0363282,11558
+128,Envy,0326856,11507
+129,Shaun of the Dead,0365748,12873
+130,De-Lovely,0352277,10364
+131,Alfie,0375173,13506
+132,Wicker Park,0324554,10756
+133,I Heart Huckabees,0356721,12944
+134,Breakin' All the Rules,0349169,11052
+135,Chasing Liberty,,11153
+136,The Cookout,0380277,11971
+137,Surviving Christmas,0252028,10805
+138,Super Size Me,,
+139,House of Flying Daggers,0385004,10034
+140,What the #$*! Do We Know?!,,
+141,Raise Your Voice,0361696,10362
+142,The Perfect Score,0314498,11692
+143,Kinsey,0362269,13114
+144,Sleepover,,
+145,Super Babies: Baby Geniuses 2,,
+146,First Daughter,0361620,10382
+147,Saved!,,
+148,Suspect Zero,0324127,14189
+149,Connie and Carla,0345074,11082
+150,Being Julia,0340012,13316
+151,Thunderbirds,0167456,11322
+152,"Woman, Thou Art Loosed",0399901,13202
+153,Maria Full of Grace,,
+154,A Very Long Engagement,0344510,12884
+155,Teacher's Pet,,
+156,The Big Bounce,0315824,11662
+157,Beyond the Sea,0363473,10150
+158,Against the Ropes,0312329,12238
+159,Before Sunset,0381681,12908
+160,The Clearing,0331952,14327
+161,Never Die Alone,0354766,14896
+162,Bad Education,0275491,12880
+163,Birth,,
+164,Club Dread,,
+165,Touching the Void,,
+166,Spartan,0360009,13523
+167,A Day Without a Mexican,0377744,13260
+168,"Good Bye, Lenin!",0301357,13051
+170,The Door in the Floor,0348593,13078
+171,Benji Off the Leash,0315273,11962
+172,Vera Drake,0383694,13531
+173,William Shakespeare's The Merchant of Venice,0379889,12888
+174,Born Into Brothels,,
+175,The Work and the Glory,0410454,12700
+176,Veer Zaara,0420332,17434
+177,Clifford's Really Big Movie,0398872,9565
+178,Bobby Jones: Stroke of Genius,,
+179,Therese: The Story of Saint Therese of Lisieux,,
+180,Control Room,,
+181,The Dreamers,,
+182,"Spring, Summer, Fall, Winter... and Spring",,
+183,Bon Voyage,,
+184,Riding Giants,0389326,10108
+186,Coffee and Cigarettes,,
+187,Intimate Strangers,0363532,13783
+188,The Sea Inside,0369702,10243
+190,We Don't Live Here Anymore,0361309,13726
+192,The Corporation,,
+194,Elvis Gratton XXX,,
+195,The Story of the Weeping Camel,,
+196,The Blue Butterfly,0313300,348502952
+197,Main Hoon Na,0347473,9760
+198,I'm Not Scared,,
+199,The Corporation (Canada),,
+200,Nouvelle-France,,771251379
