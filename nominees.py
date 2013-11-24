@@ -1,11 +1,9 @@
+"HELPER FUNCTIONS"
 
-import csv
+#import csv
 
 from pattern.web import URL, DOM, plaintext, strip_between
 from pattern.web import NODE, TEXT, COMMENT, ELEMENT, DOCUMENT
-
-from unidecode import unidecode
-import unicodedata
 
 import re
 
@@ -38,62 +36,11 @@ def clean_unicode(s):
 	s = fixWeirdChars(s)
  	return str(s)
 
-
 '''
-Gets the movie titles for all Oscars for a given year.
-Outputs a dict of the format:
-'Award':
-	'nominees': ['a', 'b', 'c', 'd'] 
-	'winner': 'f'
-
+repair dictionary names
 '''
-def get_by_year(year):
-
-	url = URL("http://www.imdb.com/event/ev0000003/" + str(year))
-	dom = DOM(url.download(cached=True))
-	
-	dictAll = {}
-	
-	awards = dom.by_class('award')
-	awardTitles = awards[0].by_tag('h2')
-	awardList = []
-	for award in awardTitles:
-		awardList.append(award.content)
-
-	prize = awards[0].by_tag('blockquote')
-	for index, title in enumerate(prize[1:25]):
-		winner = title.by_tag('strong')[0].by_tag('a')[0].content
-		#print winner
-		nomineeList = []
-	 	for each in title.by_tag('strong')[1::]:
-	 		nomineeList.append(clean_unicode(each.by_tag('a')[0].content))
-	 		
-	 	winnersAndNominees = {}
-	  	winnersAndNominees['winner'] = clean_unicode(winner)
-	  	winnersAndNominees['nominees'] = nomineeList
-	 	dictAll[awardList[index]] =  winnersAndNominees
-	#print dictAll['Best Performance by an Actor in a Leading Role']	
-	return dictAll
-
-'''
-Gets the movie titles for all Oscars for all years between 1935 and 2013.
-Outputs a dict of dicts the format:
-'Year':
-	'Award':
-		'nominees': ['a', 'b', 'c', 'd'] 
-		'winner': 'f'
-
-'''
-def get_all_years():
-	hugeDict = {}  #lol
-	#for year in range(1935, 2014):
-	for year in range(1935, 2014):
-		hugeDict[year] = get_by_year(str(year))
-	return hugeDict #LOLLLL
-
-
 #a little hard coding, unfortunately 
-def repair_dict(officialOscars, dictionary):
+def repair_dict(dictionary):
 	for year in dictionary:
 		for award in dictionary[year]:
 			if(award == 'Best Motion Picture of the Year'):
@@ -159,6 +106,94 @@ def repair_dict(officialOscars, dictionary):
 	return dictionary
 
 
+
+'''
+END OF HELPER FUNCTIONS
+'''
+
+
+
+
+
+'''
+Gets the movie titles for all Oscars for a given year. i.e. get_by_year(2012)
+Function
+--------
+get_by_year
+
+Input int year
+
+Outputs a dict of the format:
+'Award':
+	'nominees': ['a', 'b', 'c', 'd'] 
+	'winner': 'f'
+
+'''
+def get_by_year(year):
+
+	url = URL("http://www.imdb.com/event/ev0000003/" + str(year))
+	dom = DOM(url.download(cached=True))
+	
+	dictAll = {}
+	
+	awards = dom.by_class('award')
+	awardTitles = awards[0].by_tag('h2')
+	awardList = []
+	for award in awardTitles:
+		awardList.append(award.content)
+
+	prize = awards[0].by_tag('blockquote')
+	for index, title in enumerate(prize[1:25]):
+		winner = title.by_tag('strong')[0].by_tag('a')[0].content
+		#print winner
+		nomineeList = []
+	 	for each in title.by_tag('strong')[1::]:
+	 		nomineeList.append(clean_unicode(each.by_tag('a')[0].content))
+	 		
+	 	winnersAndNominees = {}
+	  	winnersAndNominees['winner'] = clean_unicode(winner)
+	  	winnersAndNominees['nominees'] = nomineeList
+	 	dictAll[awardList[index]] =  winnersAndNominees
+	#print dictAll['Best Performance by an Actor in a Leading Role']	
+	return dictAll
+
+
+
+'''
+Gets the movie titles for all Oscars for all years between 1935 and 2013.
+Function
+--------
+get_all_years()
+
+
+Outputs a dict of dicts the format:
+'Year':
+	'Award':
+		'nominees': ['a', 'b', 'c', 'd'] 
+		'winner': 'f'
+
+'''
+
+def get_all_years():
+	hugeDict = {}  #lol
+	for year in range(1935, 2014):
+		hugeDict[year] = get_by_year(str(year))
+	return hugeDict
+
+
+
+'''
+Gets all data for every year for a specific oscar
+Function
+------
+get_by_award_all_years(oscar, dictionary)
+
+Outputs a dict of the format
+'Year':
+	'nominees': ['a', 'b', 'c', 'd'] 
+	'winner': 'f'
+        
+'''
 def get_by_award_all_years(oscar, dictionary):
 	yearDict = {}
 	for year in dictionary:
@@ -167,7 +202,8 @@ def get_by_award_all_years(oscar, dictionary):
 	return yearDict
 
 
-#EXAMPLE OF USAGE:
+'''
+EXAMPLE OF USAGE:
 allDataEver = get_all_years()
 allDataEver = repair_dict(oscarArray, allDataEver)
 print allDataEver[2013]['Best Cinematography']
@@ -177,10 +213,15 @@ print get_by_year(1952)
 #official oscar titles
 #note Best Picture instead of Best Achievement in Picture etc. 
 #note that not all oscars exist for every year, i.e. best black and white 
-oscarArray = ['Best Picture', 'Best Actor in a Leading Role', 'Best Actress in a Leading Role', 'Best Actor in a Supporting Role', 'Best Actress in a Supporting Role', 'Best Actor in a Supporting Role', 'Best Director', 'Best Assistant Director', 'Best Writing, Screenplay Written Directly for the Screen', 'Best Writing, Screenplay Based on Material from Another Medium', 'Best Cinematography', 'Best Art Direction-Set Decoration', 'Best Costume Design', 'Best Sound', 'Best Film Editing', 'Best Sound Editing','Best Effects, Visual Effects', 'Best Makeup', 'Best Music, Original Song', 'Best Music, Original Score', 'Best Short Film, Animated', 'Best Short Film, Live Action', 'Best Documentary, Short Subjects', 'Best Documentary, Features', 'Best Foreign Language Film']
 
+oscarArray = ['Best Picture', 'Best Actor in a Leading Role', 
+'Best Actress in a Leading Role', 'Best Actor in a Supporting Role', 
+'Best Actress in a Supporting Role', 'Best Actor in a Supporting Role', 
+'Best Director', 'Best Assistant Director', 'Best Writing, Screenplay Written Directly for the Screen', 
+'Best Writing, Screenplay Based on Material from Another Medium', 'Best Cinematography', 
+'Best Art Direction-Set Decoration', 'Best Costume Design', 'Best Sound', 'Best Film Editing', 
+'Best Sound Editing','Best Effects, Visual Effects', 'Best Makeup', 'Best Music, Original Song', 
+'Best Music, Original Score', 'Best Short Film, Animated', 'Best Short Film, Live Action', 'Best Documentary, Short Subjects', 
+'Best Documentary, Features', 'Best Foreign Language Film']
 
-
-
-
-
+'''
