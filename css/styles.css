@@ -1,6 +1,18 @@
+body {
+    background-color: #101010;
+}
 td {
     padding-left: 5px;
     padding-right: 5px;
+}
+
+.wrapper {
+    width: 75%;
+    margin: auto;
+    background-color: white;
+    height: 100%;
+    padding-left: 30px;
+    padding-right: 30px;
 }
 
 .header{ 
@@ -11,4 +23,16 @@ td {
     line-height: 1.1428571435;
     color: inherit;
     background-color: #eee
+}
+
+.vis {
+    width: 500px;
+    display: block;
+    margin: auto;
+}
+
+.text{
+    background-color: white;
+    border: none;
+    border-style: none;
 }
