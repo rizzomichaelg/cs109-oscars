@@ -64,8 +64,34 @@
 
     <div class="container">
         <div>
-            <p>Now having constructed, reconstructed, edited, combined, and tested our model, we sought to actually predict what movies might win Oscars and which movies will be nominated.</p>
-            <p>To do this, we first scraped a list of the top 200 movies for this year at this point.  We then constructed a new Naive Bayes model for this set and calculated the probabilities that a movie will win or get nominated.  We then combined these predictions with our logistic regression model over the Box Office Mojo data.  Once we had these, we ran...</p>
+            <p>Now, having constructed, reconstructed, edited, combined, and tested our model, we sought to actually predict what movies might win Oscars and which movies will be nominated.</p>
+            <p>After analyzing the performance of our statistical techniques on movie data taken from 2003-2012, we decided to predict the winners and nominees for the upcoming 2014 Oscars. To obtain 2013 candidate movies, we compiled a list of the 200 movies with the largest gross revenue in the calendar year through December 11th. We then combined predictions from Box Office Mojo data with probability scores obtained from the IMDB reviews classifier. With these metrics, we built a Linear Regression Classifier from the 2003-2012 data, to which we inputted this 2013 data.</p>
+<pre class="text">
+Top 10 predicted Oscar Nominees and probabilities:
+('Despicable Me 2', 0.9450296518088821)
+('Gravity', 0.70911511264555982)
+('Frozen (2013)', 0.59385000339471616)
+('Machete Kills', 0.49851958109400824)
+('The Sapphires', 0.49798933802942197)
+('Krrish 3', 0.4930328348573742)
+('No (2013)', 0.49249798827156199)
+('The Company You Keep', 0.4915370051834474)
+('Metallica Through the Never', 0.4893250274852225)
+('Gangster Squad', 0.48722418521672345)
+
+Top 10 predicted Oscar Winners and probabilities:
+('The Sapphires', 0.49182516479379612)
+('Krrish 3', 0.48692453420166537)
+('No (2013)', 0.48482888112242684)
+('The Company You Keep', 0.47888769758029637)
+('Oldboy (2013)', 0.47799688904308718)
+('Metallica Through the Never', 0.47741466994386023)
+('Machete Kills', 0.47607700886608478)
+('Blackfish', 0.47414964359384626)
+('The Iceman (2013)', 0.4740848199179637)
+('The Gatekeepers', 0.4734632781332081)
+</pre>
+            <p>Immediately observable is the fact that both lists contain almost identical movies suggesting that similar predictors affect both.  Knowing that the Oscar winner is chosen from among the nominees, this isn't that surprising, and indeed should be the case.</p>
         </div>
         <div><a class="btn btn-default slide btn-success" href="closing_remarks.html">Closing Remarks... &raquo;</a></div>
       <hr>

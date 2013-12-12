@@ -104,19 +104,56 @@ False negative rate: 19.44%
 </pre>
             <p>From these results it is clear that in both cases, these models are <i>much</i> better at predicting negatives than positives with a true negative rate of 96.6% and 82.7% percent. For both, though, we also have a high false positive rate meaning that those movies the models report as either winning an oscar or getting a nomination are not really winning. As we predicted above, the nomination model does a better job predicting true positive nominations than does the winner one simply because it contains more data and there are more nominations possible every year (meaning it has a lower probability of getting it wrong when it chooses a nomineed as opposed to a winner).</p>
         </div>
+        <hr>
         <h3>Analyzing the Box Office Mojo Data</h3>
         <div>
+            <p>Logistic Regression, which is used to predict a binary result, is used for the classification of data taken from Box Office Mojo:</p>
+<pre class="text">
+Logistic Regression Test:
+Accuracy on train data: 84.40%
+Accuracy on test data: 82.21%
+</pre>
+            <p>We have an interesting result, a very high accuracy! Let us explore this a little further by taking a look at the sensitivity (true positive) and specificity (true negative) rates:</p>
+<pre class="text">
+Sensitivity: 44.90%
+Specificity: 88.81%
+</pre>
+            <p>As expected we notice that the incidence of true positives is lower than the our overall accuracy, because we have a much larger number of negatives (non-nominees). Moving forward, we will be most interested in correctly predicting the nominees, and will be more interested in the instance of true-positives. As such, we below explore ways in which we can maximize sensitivity.</p>
+            <p>Due to the extremely small sample size of oscar nominees, the results of this analysis are subject to the test and train years utilized for analysis. However, a recurring result across multiple trials is the inclusion of Total Gross Revenue, Opening Revenue, and Number of Theaters at the opening.</p>
+            <p>As a second-optimization procedure, we manipulated the regularization parameter, what we refer to as the L2 Regularization Parameter.  As the L2 Regularization Parameter helps to minimize overfitting and our data does not suffer from much overfitting (as reported above), the L2 regularization parameter was relatively stable near 1. Furthermore the large values used in the analysis cause the manipulation of the L2 regularization to not affect our true positive rate until it get very small. (Note: The regularization parameter is the inverse of regularization strength.)</p>
+            <p>Now let's visualize this a little more explicitly:</p>
             <img class="vis" src="img/data/bomj_pred_noms.png">
             <img class="vis" src="img/data/bomj_probvact.png">
             <img class="vis" src="img/data/bomj_pred_ts.png">
             <img class="vis" src="img/data/bomj_pred_fs.png">
+            <p>The above plots provide several expected results indicate one primary result, the distribution of the probability predictions for false (non-nominee) is closer to 0 than the distribution of probability predictions for the (nominee).</p>
+        </div>
+        <hr>
+        <h3>Combined Analysis</h3>
+        <div>
+            <p>Next we perform a combined analysis using a logistic regression model. This logistic model is combines the best predictors identified within the Box Office Mojo data with predictions made by reviews taken from IMDB and Rotten Tomatoes.</p>
+<pre class="text">
+Summary Statistics (w/o IMDB Scores or RT Scores)
+Train Accuracy: 84.5603271984, Test Accuracy: 85.626911315
+True Pos. Rate: 21.9858156028, True Neg. Rate: 96.3095238095
+
+Summary Statistics (w/ just IMDB Scores)
+Train Accuracy: 86.1519607843, Test Accuracy: 86.2676056338
+True Pos. Rate: 25.3846153846, True Neg. Rate: 97.2299168975
+
+Summary Statistics (w/ just RT Scores)
+Train Accuracy: 84.2657342657, Test Accuracy: 84.7900113507
+True Pos. Rate: 22.4637681159, True Neg. Rate: 96.3660834455
+
+Summary Statistics (w/ IMDB Scores &amp; RT Scores)
+Train Accuracy: 85.7707509881, Test Accuracy: 85.6787048568
+True Pos. Rate: 25.1968503937, True Neg. Rate: 97.0414201183
+</pre>
             <img class="vis" src="img/data/comb_pred_noms.png">
             <img class="vis" src="img/data/comb_probvact.png">
             <img class="vis" src="img/data/comb_pred_ts.png">
             <img class="vis" src="img/data/comb_pred_fs.png">
-        </div>
-        <h3>Combined Analysis</h3>
-        <div>
+            <p>As evidenced by the summary statistics above, the true positive rate is increased upon the addition of review data taken from Rotten Tomatoes and IMDB. As another expected result, the histogram of probabilities predictions for movies that did receive a nomination has a larger right tail than does the histogram of probability predictions for those movies that did not receive a nomination. Overall, our calibration plot (though noise) appears to follow the linear trend of y = x.</p>
         </div>
         <div><a class="btn btn-default slide btn-success" href="predict.html">And the Oscar goes to... &raquo;</a></div>
       <hr>
@@ -125,7 +162,7 @@ False negative rate: 19.44%
         <p>&copy; Company 2013</p>
       </footer>
     </div> <!-- /container -->
-        </div> <!-- wrapper -->
+</div> <!-- wrapper -->
 </body>
 
 </html>
