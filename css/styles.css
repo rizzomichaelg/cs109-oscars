@@ -1,5 +1,7 @@
 body {
     background-color: #101010;
+    background-image:url('../img/redcarpet.jpg');
+    background-attachment: fixed;
 }
 td {
     padding-left: 5px;
