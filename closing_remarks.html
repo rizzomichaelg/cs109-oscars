@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html class="no-js">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>And the Oscar goes to...</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width">
+
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <style>
+            body {
+                padding-top: 50px;
+                padding-bottom: 20px;
+            }
+        </style>
+        <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/styles.css">
+        <link href="img/favicon.ico" rel="shortcut icon">
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+        <script src="js/jquery-1.10.1.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/scripts.js"></script>
+
+        <!--[if lt IE 9]>
+            <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+            <script>window.html5 || document.write('<script src="js/vendor/html5shiv.js"><\/script>')</script>
+        <![endif]-->
+    </head>
+    <body>
+    <div class='wrapper'>
+
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class='navbar-brand' href="index.html">Home</a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="getdata.html">Getting the Data</a></li>
+            <li><a href="visdata.html">Visualizing the Data</a></li>
+            <li><a href="stat.html">Statistical Analysis</a></li>
+            <li><a href="predict.html">Predictions</a></li>
+            <li><a href="closing_remarks.html">Closing Remarks</a></li>
+          </ul>
+        </div><!--/.navbar-collapse -->
+      </div>
+    </div>
+
+    <!-- Main jumbotron for a primary marketing message or call to action -->
+    <div class="header">
+      <div class="container">
+        <h2>Reflections and Closing Remarks</h2>
+      </div>
+    </div>
+
+    <div class="container">
+        <b>Working with Big Data</b>
+        <div>
+            In this project, we got a first real taste of what working with big(ish) data feels like.  We scraped over 700 MB of reviews and movie data which translated into very long scraping and processing times.  When working with big data, we had to consider how best to tackle the problem of time and memory.  For example, when first loading the entire set of IMDB reviews into our notebook and then trying to perform actions on it, we would often run out of memory.  To overcome this, we then adopted the strategy of saving almost everything to disk&mdash;something that resulted in being ubiquitous in our code.  Saving this big data to disk (and also using quite frequently python's gc.collect() function) allowed us to conserve our computer's resources as well as maximize efficiency by cutting down on the time that was required to run code to generate the data objects: instead of rerunning the code every time (to scrape the data for instance), we would simply load the pre-formatted data from disk. <br>
+            All in all, working with big data has led us to appreciate things like algorithmic complexity of code, and how companies like Google and Facebook have to work with even bigger data on a day-to-day basis.
+        </div>
+        <hr>
+        <b>Future Directions</b>
+        <div>
+            With such an open-ended problem like predicting movie Oscar wins and nominations, there are many directions our project could have taken.  We did revise and re-revise our model herein, but there is always more we can do such as experimenting with different models, investigating new and exciting ways we can combine the different components, and finally, how we can more properly account for bias&mdash;something that we did not deal with very strongly in our models.  Things to investigate here would be when combining reviews from different sources, did each source have a different bias? If so, how could we effectively normalize for this so a combination of them could be properly used?  Finally, Oscar data over a 10 year period ended up not being very much to really train our models well and resulted in our models over-predicting failures.  In order to overcome this, we could train our models on Oscar data from a greater number of years.  With this, though, also comes the increased price of adding more movie reviews and working with even larger data.
+        </div>
+        <hr>
+        <b>Final Remarks</b>
+        <div>
+            Herein we demonstrated how movie review data and scores can be combined with quantitative data describing a movie to form a predicting model about its relative success or failure in the Oscar awards.  We showed that such models do a relatively good job at predicting Oscar failures, yet they can still be improved upon for predicting Oscar success.  Ultimately, we generated a list of 2013 movies that our model predicts will win Oscar awards and another list that will receive Oscar nominations.  It will be interesting to see how well our model performs for the 2014 Oscar Awards.
+        </div>
+      <hr>
+
+      <footer>
+        <p>&copy; Company 2013</p>
+      </footer>
+    </div> <!-- /container -->
+</div> <!-- wrapper -->
+</body>
+
+</html>
