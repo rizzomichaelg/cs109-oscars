@@ -48,6 +48,8 @@
             <li><a href="visdata.html">Visualizing the Data</a></li>
             <li><a href="stat.html">Statistical Analysis</a></li>
             <li><a href="predict.html">Predictions</a></li>
+            <li><a href="closing_remarks.html">Closing Remarks</a></li>
+
           </ul>
         </div><!--/.navbar-collapse -->
       </div>
@@ -64,7 +66,7 @@
         <div>
             <p>We will now use a Naive Bayes classifier to build a prediction model for whether a movie will be nominated for an oscar. From there we will try to pick from among the nominees to get a winner.</p>
             <p>Before we began our analysis, we first had to add to our dataframe information about the results of the oscar nominations and winners. Here we add two columns to our dataframe: one for the winner, and one for the nomination.  We add these by representing this information as a binary win/loss nomination/not nomination.</p>
-            <p>We next ran a count vectorizer over the body of the reviews to convert the textual content of the reviews to numerical counts of word frequencies.  Following this, we split the data into two a training set and a testing set.  In this way, we planned to use our training set to train our model and then use the testing set to evaluate its accuracy.</p>
+            <p>We next ran a count vectorizer over the body of the reviews to convert the textual content of the reviews to numerical counts of word frequencies.  Following this, we split the data into two a training set and a testing set.  In this way, we planned to use our training set to train our model and then use the testing set to evaluate its accuracy.  But to split the data, we could either randomly split the reviews, or we could split and keep each year in tact.  We chose to do the latter to ensure we had equal representation for all oscars in a given year.</p>
             <p>Now using our model to make predictions against the test set, we get the following results:</p>
 <pre class="text">
 Accuracy on winner train data: 90.87%
@@ -72,7 +74,7 @@ Accuracy on winner test data: 90.38%
 Accuracy on nominee train data: 88.91%
 Accuracy on nominee test data: 71.32%
 </pre>
-            <p>Because the winner test data has a greater accuracy than the winner train data, this data set is not overfit; however, the difference between the score for the nominiee data in the training set and the testing set it close to 20% meaning this is significantly more overfit. The nominee data has significantly more entries than the winner data, so the opportunity to overfit here is much larger, and this is indeed what we observe.</p>
+            <p>The winner test data has a <i>slightly</i> lower accuracy than the winner train data, so it is slightly overfit (but this is really imperceptible); however, the difference between the score for the nominiee data in the training set and the testing set it close to 20% meaning this is significantly more overfit. The nominee data has significantly more entries than the winner data, so the opportunity to overfit here is much larger, and this is indeed what we observe.</p>
             <p>This model seems to work with good accuracy for the winner data in terms of predicting accuracy, but we can still dramatically improve for the test data. Up until this point, we have been assuming all the different reviews are weighted equally when, in reality, this shouldn't be the case. We will thus next weight each of the samples by a modified zscore.  We will use the overall score as the mean for the reviews (grouped by movie) instead of the mean of the sample here assuming that those samples with the lowest distances from the overall score should be weighted the highest.  We then normalized the scores and reversed them so that those scores with the zscores closest to 0 then have the greatest weights.</p>
             <p>Reconstructing our model, we get the following results:</p>
 <pre class="text">
@@ -85,8 +87,8 @@ Accuracy on nominee test data: 71.52%
             <img class='vis' src="img/data/imdb_win_cal.png">
             <p>As we can see, for the majority of the data, the model is underconfident as it predicts values that are much lower than the line y = x. This is likely a direct result of the fact that, as can be seen by the lower plot, this model predicts losses much more than it predicts wins. With such little oscar win data (there are only a handful of oscars per year), this isn't that surprising. With this logic, we should expect the confidence of the model to be higher.</p>
             <img class='vis' src="img/data/imdb_nom_cal.png">
-            <p>And indeed this is what we observe with the model's predictions now falling closer to the y = x line than was the case for the Oscar Winner data. Here we had more data with which to train our model, so we do observe more predicted nominations as oppposed to predicted wins above.</p>
-            <p>Although we've assumed it, from this data alone, we can't actually tell whether our model is predicting well the positive,negatives, or both. We then determined the percent of our predictions that were true positives, false positives, true negatives, and false negatives:</p>
+            <p>And indeed this is what we observe with the model's predictions now falling closer to the y = x line than was the case for the Oscar Winner data. Here we had more data with which to train our model, so we do observe more predicted nominations as opposed to predicted wins above.</p>
+            <p>Although we've assumed it, from this data alone, we can't actually tell whether our model is predicting well the positive, negatives, or both. We then determined the percent of our predictions that were true positives, false positives, true negatives, and false negatives:</p>
 <pre class='text'>
 For Oscar Wins:
 True positive rate: 6.28%

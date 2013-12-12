@@ -48,6 +48,8 @@
             <li><a href="visdata.html">Visualizing the Data</a></li>
             <li><a href="stat.html">Statistical Analysis</a></li>
             <li><a href="predict.html">Predictions</a></li>
+            <li><a href="closing_remarks.html">Closing Remarks</a></li>
+
           </ul>
         </div><!--/.navbar-collapse -->
       </div>
@@ -63,7 +65,7 @@
     <div class="container">
         <h4>Getting the Movies</h4>
         <div>
-            <p>In order to run our analysis, we need to isolate a dataset of movies for a given year that are candidates for an Oscar. For this purpose, we decided to extract a subset of the movies outlined by Box Office Mojo as the top movies in a given year. Assumming that the movies most likely to win an Oscar are likely to be among those with the highest gross revenue in a given year, we decided to select the Top 200 movies from each year as candidates for an Oscar (in the following year).</p>
+            <p>In order to run our analysis, we need to isolate a dataset of movies for a given year that are candidates for an Oscar. For this purpose, we decided to extract a subset of the movies outlined by Box Office Mojo as the top movies in a given year. Assuming that the movies most likely to win an Oscar are likely to be among those with the highest gross revenue in a given year, we decided to select the Top 200 movies from each year as candidates for an Oscar (in the following year).</p>
             <p>The data collected via get_top_movies by year successfully found the IMDBid (the reference id used across the different segment of this project) for approximately 90% of the top 200 movies in each given year. The additional 10% of IMDBids not found by the above procedure were identified manually. The manual determination of IMDBids was recorded in two new files: 'revised_id_data.csv' and 'completedata.csv'.</p>
             <p>Of the top 200 movies from each year, approximately 5% were excluded from further analysis. The top reasons for movie exclusion included:
                 <ul>
@@ -86,7 +88,7 @@
                 </ul>
             When pulling the data, we were sure to only take reviews and ratings that are specific to the site in question (for example, for IMDB, we only took the IMDB <i>user</i> reviews because the critic reviews are linked from other sites like Rotten Tomatoes and Metacritic.</p>
             <p>From these sources, we scraped our review data and stored in it Dataframes of the following strcture:</p>
-            <table class="table-bordered"><thead><tr><th>Critic</th><th>Normalized Score</th><th>Quote</th><th>ID</th><th>Title</th><th>Source</th><th>Overall Score</th><th>Year</th></tr></thead><thead></thead><tbody><tr><td>Name of the Critic</td><td>Score normalized to what the max is for this source</td><td>The string of the review</td><td>Movie ID for this site</td><td>Title of the movie</td><td>Source of the review</td><td>The overall score for this movie on this site (if there is one)</td><td>Year that the movie is form</td></tr></tbody></table>
+            <table class="table-bordered"><thead><tr><th>Critic</th><th>Normalized Score</th><th>Quote</th><th>ID</th><th>Title</th><th>Source</th><th>Overall Score</th><th>Year</th></tr></thead><thead></thead><tbody><tr><td>Name of the Critic</td><td>Score normalized to what the max is for this source</td><td>The string of the review</td><td>IMDB ID</td><td>Title of the movie</td><td>Source of the review</td><td>The overall score for this movie on this site (if there is one)</td><td>Year that the movie is form</td></tr></tbody></table>
         </div>
         <br>
         <div><a class="btn btn-default slide btn-success" href="visdata.html">Seeing the Data &raquo;</a></div>
